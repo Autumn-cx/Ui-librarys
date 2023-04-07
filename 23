@@ -1,3 +1,6 @@
+--[[
+    @gs.cc
+]]
 -- // Variables
 local ws, uis, rs, hs, cas, plrs, stats = game:GetService("Workspace"), game:GetService("UserInputService"), game:GetService("RunService"), game:GetService("HttpService"), game:GetService("ContextActionService"), game:GetService("Players"), game:GetService("Stats")
 --
@@ -22,9 +25,9 @@ local library = {
     hovers = {},
     Relations = {},
     folders = {
-        main = "Fatality",
-        assets = "Fatality/Images",
-        configs = "Fatality/Configs"
+        main = "Atlanta",
+        assets = "Atlanta/Images",
+        configs = "Atlanta/Configs"
     },
     shared = {
         initialized = false,
@@ -57,7 +60,7 @@ local sections = {}
 -- Theme Variables
 --local themes = {}
 local theme = {
-    accent = Color3.fromRGB(167, 217, 77),
+    accent = Color3.fromRGB(55, 175, 225),
     lightcontrast = Color3.fromRGB(30, 30, 30),
     darkcontrast = Color3.fromRGB(20, 20, 20),
     outline = Color3.fromRGB(0, 0, 0),
@@ -436,7 +439,7 @@ do
         --
         theme.accent = accent
         --
-        local window = {pages = {}, loader = true, isVisible = false, pageammount = pageammount, callback = callback, wminfo = "Fatality | discord.gg/aimviewer", currentPage = nil, fading = false, dragging = false, drag = Vector2.new(0,0), currentContent = {frame = nil, dropdown = nil, multibox = nil, colorpicker = nil, keybind = nil, textbox = nil}}
+        local window = {pages = {}, loader = true, isVisible = false, pageammount = pageammount, callback = callback, wminfo = "$$$$$ AntarcticaWare $$$$$ || UID : %u || Ping : %s || Fps : %u", currentPage = nil, fading = false, dragging = false, drag = Vector2.new(0,0), currentContent = {frame = nil, dropdown = nil, multibox = nil, colorpicker = nil, keybind = nil, textbox = nil}}
         --
         local main_frame = utility:Create("Frame", {Vector2.new(0,0)}, {
             Size = utility:Size(0, size.X, 0, size.Y),
@@ -900,7 +903,7 @@ do
         --
         theme.accent = accent
         --
-        local window = {pages = {}, loader = style == 2, init = false, pageammount = pageammount, isVisible = false, callback = callback, uibind = Enum.KeyCode.Z, wminfo = "Fatality | discord.gg/aimviewer", currentPage = nil, fading = false, dragging = false, drag = Vector2.new(0,0), currentContent = {frame = nil, dropdown = nil, multibox = nil, colorpicker = nil, keybind = nil, textbox = nil}}
+        local window = {pages = {}, loader = style == 2, init = false, pageammount = pageammount, isVisible = false, callback = callback, uibind = Enum.KeyCode.Z, wminfo = "$$$$$ AntarcticaWare $$$$$ || UID : %u || Ping : %s || Fps : %u", currentPage = nil, fading = false, dragging = false, drag = Vector2.new(0,0), currentContent = {frame = nil, dropdown = nil, multibox = nil, colorpicker = nil, keybind = nil, textbox = nil}}
         --
         local main_frame = utility:Create("Frame", {Vector2.new(0,0)}, {
             Size = utility:Size(0, size.X, 0, size.Y),
@@ -1017,6 +1020,60 @@ do
             )
         end
         -- // Esp Preview
+        do
+            window.VisualPreview = {
+                Size = {X = 5, Y = 0},
+                Color1 = Color3.fromRGB(0, 255, 0),
+                Color2 = Color3.fromRGB(255, 0, 0),
+                HealthBarFade = 0,
+                Fading = false,
+                State = false,
+                Visible = true,
+                Drawings = {},
+                Components = {
+                    Box = {
+                        Outline = nil,
+                        Box = nil,
+                        Fill = nil
+                    },
+                    HealthBar = {
+                        Outline = nil,
+                        Box = nil,
+                        Value = nil
+                    },
+                    Skeleton = {
+                        Head = {},
+                        Torso = {},
+                        LeftArm = {},
+                        RightArm = {},
+                        Hips = {},
+                        LeftLeg = {},
+                        RightLeg = {},
+                        HipsTorso = {}
+                    },
+                    Chams = {
+                        Head = {},
+                        Torso = {},
+                        LeftArm = {},
+                        RightArm = {},
+                        LeftLeg = {},
+                        RightLeg = {}
+                    },
+                    Title = {
+                        Text = nil
+                    },
+                    Distance = {
+                        Text = nil
+                    },
+                    Tool = {
+                        Text = nil
+                    },
+                    Flags = {
+                        Text = nil
+                    }
+                }
+            }
+            --
             local esppreview_frame = utility:Create("Frame", {Vector2.new(main_frame.Size.X + 5,0), main_frame}, {
                 Size = utility:Size(0, 236, 0, 339),
                 Position = utility:Position(1, 5, 0, 0, main_frame),
@@ -3405,7 +3462,7 @@ do
                 window.currentContent.button = button
             end
             --
-            utility:LoadImage(button_gradient, "gradient", "https://i.imgur.com/DzrzUt3.png")
+            utility:LoadImage(button_gradient, "gradient", "https://i.imgur.com/5hmlrjX.png")
             --
             library.began[#library.began + 1] = function(Input)
                 if Input.UserInputType == Enum.UserInputType.MouseButton1 and (button_outline.Visible or button.open) and window.isVisible then
@@ -3432,7 +3489,7 @@ do
                                 --
                                 task.wait(0.15)
                                 --
-                                utility:LoadImage(button_gradient, "gradient", "https://i.imgur.com/DzrzUt3.png") 
+                                utility:LoadImage(button_gradient, "gradient", "https://i.imgur.com/5hmlrjX.png") 
                             end)
                             --
                             if not button.open then
@@ -3454,7 +3511,7 @@ do
             playerList.buttons[#playerList.buttons + 1] = button
         end
         --
-        utility:LoadImage(list_gradient, "gradient", "https://i.imgur.com/DzrzUt3.png")
+        utility:LoadImage(list_gradient, "gradient", "https://i.imgur.com/5hmlrjX.png")
         --
         function playerList:GetSelection()
             for Index, Value in pairs(playerList.players) do
@@ -3726,7 +3783,7 @@ do
             Color = "textcolor"
         }
         --
-        utility:LoadImage(toggle__gradient, "gradient", "https://i.imgur.com/DzrzUt3.png")
+        utility:LoadImage(toggle__gradient, "gradient", "https://i.imgur.com/5hmlrjX.png")
         --
         function toggle:Get()
             return toggle.current
@@ -3849,7 +3906,7 @@ do
             if transp then
                 utility:LoadImage(colorpicker__transparency, "cptransp", "https://i.imgur.com/IIPee2A.png")
             end
-            utility:LoadImage(colorpicker__gradient, "gradient", "https://i.imgur.com/DzrzUt3.png")
+            utility:LoadImage(colorpicker__gradient, "gradient", "https://i.imgur.com/5hmlrjX.png")
             --
             function colorpicker:Set(color, transp_val)
                 if typeof(color) == "table" then
@@ -4315,7 +4372,7 @@ do
                 Color = "textcolor"
             }
             --
-            utility:LoadImage(keybind__gradient, "gradient", "https://i.imgur.com/DzrzUt3.png")
+            utility:LoadImage(keybind__gradient, "gradient", "https://i.imgur.com/5hmlrjX.png")
             --
             function keybind:Shorten(string)
                 for i,v in pairs(shortenedInputs) do
@@ -4533,7 +4590,7 @@ do
                             Visible = page.open
                         }, keybind.modemenu.drawings)
                         --
-                        utility:LoadImage(keybind__gradient, "gradient", "https://i.imgur.com/DzrzUt3.png")
+                        utility:LoadImage(keybind__gradient, "gradient", "https://i.imgur.com/5hmlrjX.png")
                         --
                         for i,v in pairs({"Always", "Toggle", "On Hold", "Off Hold"}) do
                             local button_title = utility:Create("TextLabel", {Vector2.new(modemenu_frame.Size.X/2,15 * (i-1)), modemenu_frame}, {
@@ -4695,7 +4752,7 @@ do
             Color = "textcolor"
         }
         --
-        utility:LoadImage(slider__gradient, "gradient", "https://i.imgur.com/DzrzUt3.png")
+        utility:LoadImage(slider__gradient, "gradient", "https://i.imgur.com/5hmlrjX.png")
         --
         function slider:Set(value)
             local oldval = slider.current
@@ -4822,7 +4879,7 @@ do
             Color = "textcolor"
         }
         --
-        utility:LoadImage(button_gradient, "gradient", "https://i.imgur.com/DzrzUt3.png")
+        utility:LoadImage(button_gradient, "gradient", "https://i.imgur.com/5hmlrjX.png")
         --
         library.began[#library.began + 1] = function(Input)
             if Input.UserInputType == Enum.UserInputType.MouseButton1 and button_outline.Visible and window.isVisible and utility:MouseOverDrawing({section.section_frame.Position.X, section.section_frame.Position.Y + button.axis, section.section_frame.Position.X + section.section_frame.Size.X, section.section_frame.Position.Y + button.axis + 20}) and not window:IsOverContent() then
@@ -4831,7 +4888,7 @@ do
                     --
                     task.wait(0.15)
                     --
-                    utility:LoadImage(button_gradient, "gradient", "https://i.imgur.com/DzrzUt3.png") 
+                    utility:LoadImage(button_gradient, "gradient", "https://i.imgur.com/5hmlrjX.png") 
                 end)
                 --
                 callback()
@@ -4930,7 +4987,7 @@ do
             Color = textbox.current == "" and (placeholder and "textdark") or "textcolor"
         }
         --
-        utility:LoadImage(textbox_gradient, "gradient", "https://i.imgur.com/DzrzUt3.png")
+        utility:LoadImage(textbox_gradient, "gradient", "https://i.imgur.com/5hmlrjX.png")
         --
         function textbox:Get()
             return textbox.current
@@ -4963,7 +5020,7 @@ do
                         --
                         task.wait(0.15)
                         --
-                        utility:LoadImage(textbox_gradient, "gradient", "https://i.imgur.com/DzrzUt3.png") 
+                        utility:LoadImage(textbox_gradient, "gradient", "https://i.imgur.com/5hmlrjX.png") 
                     end)
                     --
                     if not (window.currentContent.textbox and window.currentContent.textbox.Name == identifier) then
@@ -5030,7 +5087,7 @@ do
                             Color = textbox.current == "" and (placeholder and "textdark") or "textcolor"
                         }
                         --
-                        utility:LoadImage(textbox_gradient, "gradient", "https://i.imgur.com/DzrzUt3.png")
+                        utility:LoadImage(textbox_gradient, "gradient", "https://i.imgur.com/5hmlrjX.png")
                     end)
                     --
                     setclipboard(textbox.current)
@@ -5120,7 +5177,7 @@ do
                 Color = "textcolor"
             }
             --
-            utility:LoadImage(button_gradient, "gradient", "https://i.imgur.com/DzrzUt3.png")
+            utility:LoadImage(button_gradient, "gradient", "https://i.imgur.com/5hmlrjX.png")
             --
             library.began[#library.began + 1] = function(Input)
                 if Input.UserInputType == Enum.UserInputType.MouseButton1 and button_outline.Visible and window.isVisible and utility:MouseOverDrawing({section.section_frame.Position.X + (i == 2 and (section.section_frame.Size.X/2) or 0), section.section_frame.Position.Y + button.axis, section.section_frame.Position.X + section.section_frame.Size.X - (i == 1 and (section.section_frame.Size.X/2) or 0), section.section_frame.Position.Y + button.axis + 20}) and not window:IsOverContent() then
@@ -5129,7 +5186,7 @@ do
                         --
                         task.wait(0.15)
                         --
-                        utility:LoadImage(button_gradient, "gradient", "https://i.imgur.com/DzrzUt3.png") 
+                        utility:LoadImage(button_gradient, "gradient", "https://i.imgur.com/5hmlrjX.png") 
                     end)
                     --
                     buttons[i][2]()
@@ -5234,7 +5291,7 @@ do
         }, section.visibleContent);dropdown["dropdown_image"] = dropdown_image
         --
         utility:LoadImage(dropdown_image, "arrow_down", "https://i.imgur.com/tVqy0nL.png")
-        utility:LoadImage(dropdown__gradient, "gradient", "https://i.imgur.com/DzrzUt3.png")
+        utility:LoadImage(dropdown__gradient, "gradient", "https://i.imgur.com/5hmlrjX.png")
         --
         if max then
             local lastupdate = dropdown.scrollindex
@@ -5312,7 +5369,7 @@ do
                         --
                         task.wait(0.15)
                         --
-                        utility:LoadImage(dropdown__gradient, "gradient", "https://i.imgur.com/DzrzUt3.png") 
+                        utility:LoadImage(dropdown__gradient, "gradient", "https://i.imgur.com/5hmlrjX.png") 
                     end)
                     --
                     if not dropdown.open then
@@ -5586,7 +5643,7 @@ do
         }, section.visibleContent);multibox["multibox_image"] = multibox_image
         --
         utility:LoadImage(multibox_image, "arrow_down", "https://i.imgur.com/tVqy0nL.png")
-        utility:LoadImage(multibox__gradient, "gradient", "https://i.imgur.com/DzrzUt3.png")
+        utility:LoadImage(multibox__gradient, "gradient", "https://i.imgur.com/5hmlrjX.png")
         --
         function multibox:Update()
             if multibox.open and multibox.holder.inline then
@@ -5664,7 +5721,7 @@ do
                         --
                         task.wait(0.15)
                         --
-                        utility:LoadImage(multibox__gradient, "gradient", "https://i.imgur.com/DzrzUt3.png") 
+                        utility:LoadImage(multibox__gradient, "gradient", "https://i.imgur.com/5hmlrjX.png") 
                     end)
                     --
                     if not multibox.open then
@@ -5713,7 +5770,7 @@ do
                                 Visible = page.open
                             }, multibox.holder.drawings)
                             --
-                            utility:LoadImage(multibox_value_gradient, "gradient", "https://i.imgur.com/DzrzUt3.png")]]
+                            utility:LoadImage(multibox_value_gradient, "gradient", "https://i.imgur.com/5hmlrjX.png")]]
                             --
                             local multibox_value = utility:Create("TextLabel", {Vector2.new(Find(multibox.current, v) and 8 or 6,2), multibox_value_frame}, {
                                 Text = v,
@@ -5881,7 +5938,7 @@ do
             Color = "textcolor"
         }
         --
-        utility:LoadImage(keybind__gradient, "gradient", "https://i.imgur.com/DzrzUt3.png")
+        utility:LoadImage(keybind__gradient, "gradient", "https://i.imgur.com/5hmlrjX.png")
         --
         function keybind:Shorten(string)
             for i,v in pairs(shortenedInputs) do
@@ -6095,7 +6152,7 @@ do
                         Visible = page.open
                     }, keybind.modemenu.drawings)
                     --
-                    utility:LoadImage(keybind__gradient, "gradient", "https://i.imgur.com/DzrzUt3.png")
+                    utility:LoadImage(keybind__gradient, "gradient", "https://i.imgur.com/5hmlrjX.png")
                     --
                     for i,v in pairs({"Always", "Toggle", "On Hold", "Off Hold"}) do
                         local button_title = utility:Create("TextLabel", {Vector2.new(modemenu_frame.Size.X/2,15 * (i-1)), modemenu_frame}, {
@@ -6230,7 +6287,7 @@ do
         if transp then
             utility:LoadImage(colorpicker__transparency, "cptransp", "https://i.imgur.com/IIPee2A.png")
         end
-        utility:LoadImage(colorpicker__gradient, "gradient", "https://i.imgur.com/DzrzUt3.png")
+        utility:LoadImage(colorpicker__gradient, "gradient", "https://i.imgur.com/5hmlrjX.png")
         --
         function colorpicker:Set(color, transp_val)
             if typeof(color) == "table" then
@@ -6674,7 +6731,7 @@ do
             if transp then
                 utility:LoadImage(colorpicker__transparency, "cptransp", "https://i.imgur.com/IIPee2A.png")
             end
-            utility:LoadImage(colorpicker__gradient, "gradient", "https://i.imgur.com/DzrzUt3.png")
+            utility:LoadImage(colorpicker__gradient, "gradient", "https://i.imgur.com/5hmlrjX.png")
             --
             function colorpicker:Set(color, transp_val)
                 if typeof(color) == "table" then
@@ -7153,7 +7210,7 @@ do
             list.buttons[i] = config_title
         end
         --
-        utility:LoadImage(list_gradient, "gradient", "https://i.imgur.com/DzrzUt3.png")
+        utility:LoadImage(list_gradient, "gradient", "https://i.imgur.com/5hmlrjX.png")
         --
         function list:UpdateScroll()
             if (#list.options - list.max) > 0 then
@@ -7249,33 +7306,4 @@ do
     end
 end
 --
-function library:UpdateColor(ColorType, ColorValue)
-    local ColorType = ColorType:lower()
-    --
-    theme[ColorType] = ColorValue
-    --
-    for Index, Value in pairs(library.colors) do
-        for Index2, Value2 in pairs(Value) do
-            if Value2 == ColorType then
-                Index[Index2] = theme[Value2]
-            end
-        end
-    end
-end
-
-local m_thread = task do
-    setreadonly(m_thread, false)
-
-    function m_thread.spawn_loop(p_time, p_callback)
-        m_thread.spawn(function()
-            while true do
-                p_callback()
-                m_thread.wait(p_time)
-            end
-        end)
-    end
-
-    setreadonly(m_thread, true)
-end
-
 return library, utility, library.pointers, theme
